@@ -3,6 +3,8 @@ extends RigidBody2D
 const HitEffect = preload("res://HitEffect.tscn")
 const PlayerHurtSound = preload("res://PlayerHurtSound.tscn")
 
+signal vanquished
+
 func _ready():
 	$AnimatedSprite.playing = true
 	var mob_types = $AnimatedSprite.frames.get_animation_names()
@@ -21,4 +23,5 @@ func _on_Hurtbox_area_entered(area):
 	get_tree().current_scene.add_child(effect)
 	effect.global_position = global_position - Vector2(0, 8)
 	get_tree().current_scene.add_child(PlayerHurtSound.instance())
+	emit_signal("vanquished")
 	queue_free()

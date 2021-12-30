@@ -4,7 +4,7 @@ export var HIT_WARD_SECONDS = 2.5
 
 
 signal hit
-signal toro
+signal ouch
 
 onready var hurtbox = $Hurtbox
 onready var hurtbox_collider = $Hurtbox/CollisionShape2D
@@ -69,6 +69,7 @@ func _on_Hurtbox_area_entered(area):
 		# hurtbox.create_hit_effect(self)
 		# get_tree().current_scene.add_child(PlayerHurtSound.instance())
 		health -=1
+		emit_signal("ouch")
 		# print("ouch: ", health)
 		if health < 1:
 			if not dead:
