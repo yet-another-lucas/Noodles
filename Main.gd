@@ -3,6 +3,7 @@ extends Node
 export(PackedScene) var mob_scene
 var score
 var moblist = []
+var kills = 0
 
 func _ready():
 	randomize()
@@ -21,6 +22,8 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
+	$HUD.update_health($Player.health)
+	$HUD.update_kills(0)
 	$HUD.show_message("Get Ready")
 	$Music.play()
 
@@ -32,6 +35,8 @@ func _on_MobTimer_timeout():
 
 	# Create a Mob instance and add it to the scene.
 	var mob = mob_scene.instance()
+	#<source_node>.connect(<signal_name>, <target_node>, <target_function_name>)
+	mob.connect("vanquished", self, "on_creep_kill")
 	add_child(mob)
 	moblist.append(mob)
 	# Set the mob's direction perpendicular to the path direction.
@@ -57,3 +62,11 @@ func _on_ScoreTimer_timeout():
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
+	
+func on_creep_kill():
+	kills += 1
+	$HUD.update_kills(kills)
+	
+
+func _on_Player_ouch():
+	$HUD.update_health($Player.health)
