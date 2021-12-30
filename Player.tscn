@@ -113,7 +113,6 @@ shape = SubResource( 11 )
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
-[connection signal="tree_entered" from="Exhaust" to="." method="_on_Exhaust_tree_entered"]
 [connection signal="area_entered" from="Exhaust/Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="ward_ended" from="Hurtbox" to="." method="_on_Hurtbox_ward_ended"]

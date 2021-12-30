@@ -8,7 +8,6 @@ signal toro
 
 onready var hurtbox = $Hurtbox
 onready var hurtbox_collider = $Hurtbox/CollisionShape2D
-onready var newTrail = $NuTrail/TailCollider
 onready var exhaust = $Exhaust
 
 # onready var blinkPlayer = $BlinkPlayer
@@ -22,12 +21,8 @@ var dead = false
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
-	# newTrail.get_node("Exhaust").hide()
-	# newTrail.get_node("Exhaust").clear_points()
 	exhaust.hide()
 	exhaust.clear_points()
-	# hurtbox_collider.disabled = true # TODO: remove this when trail collisions work
-
 
 func _process(delta):
 	last_position = position
@@ -52,8 +47,6 @@ func start(pos):
 	dead = false
 	show()
 	hurtbox_collider.disabled = false
-	# newTrail.get_node("Exhaust").clear_points()
-	# newTrail.get_node("Exhaust").show()
 	exhaust.clear_points()
 	exhaust.show()
 
@@ -61,20 +54,13 @@ func start(pos):
 func _on_Player_body_entered(_body):
 	pass #legacy collider from demo
 
-func _on_Exhaust_tree_entered(_body):
-	# print("toro")
-	emit_signal("toro")
-
-
 func _on_Hurtbox_ward_started():
 	pass # Replace with blinkplayer
 	# blinkPlayer.play("Start")
 
-
 func _on_Hurtbox_ward_ended():
 	pass # Replace with blinkplayer
 	# blinkPlayer.play("Stop")
-
 
 func _on_Hurtbox_area_entered(area):
 	if hurtbox.ward == false:
@@ -89,8 +75,6 @@ func _on_Hurtbox_area_entered(area):
 				# print("time to die")
 				dead = true
 				hide()
-				# newTrail.get_node("Exhaust").hide()
-				# newTrail.get_node("Exhaust").clear_points()
 				exhaust.hide()
 				exhaust.clear_points()
 				hurtbox_collider.set_deferred("disabled", true)
