@@ -23,7 +23,7 @@ func _physics_process(delta):
 
 
 
-
+# thanks king: https://godotengine.org/qa/67407/adding-collision-detection-to-line2d-collisionpolygon2d
 func update_collision_shape():
 	var n = points.size()
 	if n < 2:

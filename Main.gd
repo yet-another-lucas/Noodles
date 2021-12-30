@@ -7,10 +7,6 @@ var moblist = []
 func _ready():
 	randomize()
 
-func toro():
-	if moblist.size() > 0:
-		moblist[0].queue_free()
-
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
@@ -61,7 +57,3 @@ func _on_ScoreTimer_timeout():
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
-
-
-func _on_Player_toro():
-	toro() # Replace with function body.
