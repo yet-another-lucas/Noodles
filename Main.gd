@@ -62,6 +62,7 @@ func _on_ScoreTimer_timeout():
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
+	$HUD.update_kills(0)
 	
 func on_creep_kill():
 	kills += 1
