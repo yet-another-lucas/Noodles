@@ -2,7 +2,7 @@
 
 [ext_resource path="res://HitEffect.png" type="Texture" id=1]
 [ext_resource path="res://Hit.wav" type="AudioStream" id=2]
-[ext_resource path="res://Effect.gd" type="Script" id=3]
+[ext_resource path="res://HitEffect.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4

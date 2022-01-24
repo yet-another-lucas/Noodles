@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Mob.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://art/House In a Forest Loop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://art/gameover.wav" type="AudioStream" id=6]
+[ext_resource path="res://Buff.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -51,6 +52,23 @@ volume_db = -37.0
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -37.0
+
+[node name="BuffPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="BuffSpawnLocation" type="PathFollow2D" parent="BuffPath"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Buff" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 401, 556 )
+
+[node name="Buff2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 90, 513 )
+
+[node name="Buff3" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 420, 196 )
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="ouch" from="Player" to="." method="_on_Player_ouch"]

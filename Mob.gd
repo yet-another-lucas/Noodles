@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-const HitEffect = preload("res://HitEffect.tscn")
-const PlayerHurtSound = preload("res://PlayerHurtSound.tscn")
 const VanquishEffect = preload("res://VanquishEffect.tscn")
 
 signal vanquished
