@@ -23,6 +23,7 @@ shape = SubResource( 1 )
 
 [node name="BuffEffect" parent="." instance=ExtResource( 4 )]
 volume_db = -18.008
+autoplay = false
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

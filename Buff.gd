@@ -17,12 +17,15 @@ func _ready():
 func _on_Hurtbox_area_entered(area):
 	print("yum")
 	var effect = BuffEffect.instance()
-	effect.play()
-	effect.queue_free()
-	emit_signal("buff")
+	get_tree().current_scene.add_child(effect)
+	# effect.play(0.0)
+	print("did it play?")
+	# effect.queue_free()
+	# emit_signal("buff")
 	queue_free()
 
 
 
 func _on_BuffEffect_finished():
+	print("I am jack's buff")
 	pass
