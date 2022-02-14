@@ -47,4 +47,4 @@ Any advice or insight on:
 Any advice or insight on my combo system?
 * one tailsession is defines the tail from when you start moving until you stop moving.
 * all creeps defeated within one tailsession produce bonus points
-* enclosing more than 2 creeps in a tailsession (like an ouroboros) defeats them simultaneously, grants bonus points, and terminates the tailsession (like a flourish/finisher)
+* enclosing more than 2 creeps in a tailsession (like an ouroboros) defeats them simultaneously, grants bonus points, and terminates the tailsession (like a flourish/finisher). is it as simple as checking if the head intersects any line segments in the tail?
