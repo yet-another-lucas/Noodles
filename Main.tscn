@@ -10,7 +10,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1083, -3, 0, 0, 0, 0, 1082, 1921, 0, 0, 0, 0, 2, 1922, 0, 0, 0, 0, 0, 0 )
 }
 
 [node name="Main" type="Node"]
@@ -21,11 +21,9 @@ mob_scene = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.219608, 0.372549, 0.380392, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 2, 2 )
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -43,6 +41,7 @@ position = Vector2( 240, 450 )
 curve = SubResource( 1 )
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+rotation = -0.00277008
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
@@ -58,6 +57,7 @@ volume_db = -37.0
 curve = SubResource( 1 )
 
 [node name="BuffSpawnLocation" type="PathFollow2D" parent="BuffPath"]
+rotation = -0.00277008
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -69,6 +69,9 @@ position = Vector2( 90, 513 )
 
 [node name="Buff3" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 420, 196 )
+
+[node name="Buff4" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 55, 166 )
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="ouch" from="Player" to="." method="_on_Player_ouch"]
