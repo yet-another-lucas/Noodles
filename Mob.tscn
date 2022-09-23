@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Mob.gd" type="Script" id=1]
 [ext_resource path="res://art/enemyFlyingAlt_1.png" type="Texture" id=2]
@@ -28,10 +28,6 @@ animations = [ {
 "speed": 4.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 35.2706
-height = 23.3281
-
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 38.1667
 height = 33.6193
@@ -49,12 +45,6 @@ script = ExtResource( 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
 animation = "walk"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-rotation = 1.5708
-shape = SubResource( 2 )
-disabled = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 

@@ -3,7 +3,7 @@ extends Line2D
 
 # export var length = 40
 
-export var length = 100
+export var length = 50
 onready var parent = get_parent()
 onready var hitbox = $Hitbox
 

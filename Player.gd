@@ -1,6 +1,6 @@
 extends Area2D
 
-export var HIT_WARD_SECONDS = 2.5
+export var HIT_WARD_SECONDS = 0.5
 
 
 signal hit
